@@ -52,15 +52,6 @@ coverage: test-coverage ## Alias for test-coverage
 
 cov: test-coverage ## Alias for test-coverage
 
-build: ## Build docs/LATEX/main.tex
-	$(UV_RUN) python docs/LATEX/build/build.py
-
-build-clean: ## Clean docs/LATEX build artifacts
-	$(UV_RUN) python docs/LATEX/build/build.py clean
-
-clean: ## Clean up generated files
-	$(UV_RUN) python -c "import pathlib, shutil; r=pathlib.Path('.'); [p.unlink() for p in r.rglob('*.pyc')]; [shutil.rmtree(p, ignore_errors=True) for p in r.rglob('__pycache__')]; [shutil.rmtree(p, ignore_errors=True) for p in r.rglob('*.egg-info')]; [shutil.rmtree(p, ignore_errors=True) for p in [pathlib.Path('tmp/coverage'), pathlib.Path('tmp/.ruff_cache'), pathlib.Path('htmlcov'), pathlib.Path('.pytest_cache'), pathlib.Path('.ruff_cache')]]; pathlib.Path('.coverage').unlink(missing_ok=True); pathlib.Path('tmp/coverage/.coverage').unlink(missing_ok=True)"
-
 # Swallow extra positional args passed after '--' so make does not fail.
 %:
 	@:
