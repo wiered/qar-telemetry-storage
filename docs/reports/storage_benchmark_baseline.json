@@ -1,0 +1,203 @@
+{
+  "seed": 42,
+  "environment": {
+    "created_at_utc": "2026-04-28T23:55:22.546312+00:00",
+    "python_version": "3.10.11",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD"
+  },
+  "parameters": {
+    "seed": 42,
+    "rows_count": 8192,
+    "parameter_pool": 32,
+    "points_per_row": 8,
+    "block_max_points": 256,
+    "sweep_candidates": [
+      128,
+      256,
+      512,
+      1024
+    ]
+  },
+  "dataset": {
+    "rows": 8192,
+    "points": 65619,
+    "parameter_pool": 32,
+    "points_per_row_target": 8
+  },
+  "block_max_points": 256,
+  "runs": [
+    {
+      "format_name": "baseline",
+      "sstable_format": "v1_raw",
+      "scenarios": {
+        "ingest_only": {
+          "rows_per_sec": 37046.46681736502,
+          "points_per_sec": 296747.0832627777,
+          "bytes_written": 1362554,
+          "bytes_per_point": 20.764626099148114,
+          "flush_count": 16
+        },
+        "narrow_query": {
+          "rows_per_sec": 853.5761280497491,
+          "points_per_sec": 6401.820960373118,
+          "latency_p50_ms": 1.2094499979866669,
+          "latency_p95_ms": 1.2708100010058843,
+          "files_considered": 24,
+          "files_pruned": 12,
+          "files_opened": 12,
+          "blocks_considered": 2940,
+          "blocks_pruned": 2922,
+          "blocks_scanned": 18,
+          "points_decoded": 4638,
+          "points_returned": 90
+        },
+        "wide_query": {
+          "rows_per_sec": 147.40946279825076,
+          "points_per_sec": 425092.0383444556,
+          "latency_p50_ms": 6.047100010619033,
+          "latency_p95_ms": 12.332020005851518,
+          "files_considered": 16,
+          "files_pruned": 8,
+          "files_opened": 8,
+          "blocks_considered": 1960,
+          "blocks_pruned": 1834,
+          "blocks_scanned": 126,
+          "points_decoded": 32698,
+          "points_returned": 23070
+        },
+        "mixed_read_write": {
+          "rows_per_sec": 1273.720240781546,
+          "points_per_sec": 10202.66705076224,
+          "latency_p50_ms": 0.1327499994658865,
+          "latency_p95_ms": 0.20460000378079712,
+          "files_opened": 0,
+          "blocks_scanned": 0,
+          "failures": []
+        },
+        "frequent_flush_compact": {
+          "rows_per_sec": 973.6139796234663,
+          "points_per_sec": 7798.776334095732,
+          "bytes_written": 60015661,
+          "bytes_per_point": 914.6079793962115,
+          "compaction_count": 85,
+          "compaction_duration_ms": 6582.6807,
+          "compaction_rewrite_points": 2831147,
+          "compaction_rewrite_bytes": 58566339
+        },
+        "cold_recovery_startup": {
+          "rows_per_sec": 3155259.415570982,
+          "points_per_sec": 25274043.895306673,
+          "recovery_duration_ms": 1.7557,
+          "quarantined_files": 0,
+          "manifest_rebuild_count": 0
+        }
+      }
+    },
+    {
+      "format_name": "optimized",
+      "sstable_format": "v2_timeseries",
+      "scenarios": {
+        "ingest_only": {
+          "rows_per_sec": 33894.251754621255,
+          "points_per_sec": 271497.42503497214,
+          "bytes_written": 768456,
+          "bytes_per_point": 11.710876422987244,
+          "flush_count": 16
+        },
+        "narrow_query": {
+          "rows_per_sec": 628.5881912494561,
+          "points_per_sec": 4714.411434370921,
+          "latency_p50_ms": 1.549100001284387,
+          "latency_p95_ms": 2.2417150052206125,
+          "files_considered": 24,
+          "files_pruned": 12,
+          "files_opened": 12,
+          "blocks_considered": 2940,
+          "blocks_pruned": 2922,
+          "blocks_scanned": 18,
+          "points_decoded": 4638,
+          "points_returned": 90
+        },
+        "wide_query": {
+          "rows_per_sec": 103.01897093616579,
+          "points_per_sec": 297080.95743716805,
+          "latency_p50_ms": 8.936950005590916,
+          "latency_p95_ms": 13.666605005710153,
+          "files_considered": 16,
+          "files_pruned": 8,
+          "files_opened": 8,
+          "blocks_considered": 1960,
+          "blocks_pruned": 1834,
+          "blocks_scanned": 126,
+          "points_decoded": 32698,
+          "points_returned": 23070
+        },
+        "mixed_read_write": {
+          "rows_per_sec": 1199.6749396403873,
+          "points_per_sec": 9609.554426789866,
+          "latency_p50_ms": 0.15169999824138358,
+          "latency_p95_ms": 0.2569000018411316,
+          "files_opened": 0,
+          "blocks_scanned": 0,
+          "failures": []
+        },
+        "frequent_flush_compact": {
+          "rows_per_sec": 711.8837954674996,
+          "points_per_sec": 5702.283053562239,
+          "bytes_written": 33768349,
+          "bytes_per_point": 514.6123683689175,
+          "compaction_count": 85,
+          "compaction_duration_ms": 9604.035,
+          "compaction_rewrite_points": 2831147,
+          "compaction_rewrite_bytes": 32910819
+        },
+        "cold_recovery_startup": {
+          "rows_per_sec": 3190528.1280956655,
+          "points_per_sec": 25556550.932313167,
+          "recovery_duration_ms": 1.73,
+          "quarantined_files": 0,
+          "manifest_rebuild_count": 0
+        }
+      }
+    }
+  ],
+  "sweep": {
+    "candidates": [
+      {
+        "block_max_points": 128,
+        "ingest_rows_per_sec": 33765.61175231478,
+        "narrow_latency_p95_ms": 2.6118250003491994,
+        "bytes_per_point": 567.2482817476646,
+        "compaction_duration_ms": 9977.8716,
+        "compaction_rewrite_bytes": 36289683
+      },
+      {
+        "block_max_points": 256,
+        "ingest_rows_per_sec": 32325.400614536138,
+        "narrow_latency_p95_ms": 1.6017500020097941,
+        "bytes_per_point": 514.6123683689175,
+        "compaction_duration_ms": 9636.3701,
+        "compaction_rewrite_bytes": 32910819
+      },
+      {
+        "block_max_points": 512,
+        "ingest_rows_per_sec": 35904.50244015874,
+        "narrow_latency_p95_ms": 2.1999949967721477,
+        "bytes_per_point": 487.97096877428794,
+        "compaction_duration_ms": 9663.8282,
+        "compaction_rewrite_bytes": 31173083
+      },
+      {
+        "block_max_points": 1024,
+        "ingest_rows_per_sec": 34459.59389809157,
+        "narrow_latency_p95_ms": 2.9821200063452125,
+        "bytes_per_point": 474.7114707630412,
+        "compaction_duration_ms": 9396.8182,
+        "compaction_rewrite_bytes": 30303008
+      }
+    ],
+    "best_ingest_rows_per_sec": 35904.50244015874,
+    "selected_block_max_points": 256
+  }
+}

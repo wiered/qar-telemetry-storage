@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vkr-qar-2025"
+version = "0.1.0"
+description = "Prototype QAR telemetry storage and analysis system"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    "matplotlib>=3.10.9",
+    "pydantic==2.13.3",
+    "pydantic-settings==2.14.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q -p no:cacheprovider"
+
+[tool.coverage.run]
+data_file = "tmp/coverage/.coverage"
+
+[tool.coverage.html]
+directory = "tmp/coverage/htmlcov"
+
+[tool.ruff]
+cache-dir = "tmp/.ruff_cache"
+
+[tool.ruff.lint]
+select = ["D"]
+ignore = ["D107"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pydoclint]
+style = "google"
+
+arg-type-hints-in-signature = true
+arg-type-hints-in-docstring = false
+
+check-return-types = false
+check-yield-types = false
+
+check-arg-order = true
+check-style-mismatch = true
+
+should-document-star-arguments = true
+omit-stars-when-documenting-varargs = false
+
+require-return-section-when-returning-nothing = false
+require-yield-section-when-yielding-nothing = false
+
+check-class-attributes = true
+should-document-private-class-attributes = false
+
+[dependency-groups]
+test = [
+    "pytest==9.0.3",
+    "pytest-cov==7.1.0",
+    "pytest-mock==3.15.1",
+]
+dev = [
+    { include-group = "test" },
+    "pydoclint==0.8.3",
+    "ruff==0.15.10",
+    "ty==0.0.33",
+]
+docs = [
+    "colorama==0.4.6",
+    "tqdm==4.67.3",
+]

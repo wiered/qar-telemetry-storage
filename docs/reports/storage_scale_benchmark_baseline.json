@@ -1,0 +1,167 @@
+{
+  "seed": 42,
+  "environment": {
+    "created_at_utc": "2026-04-29T00:07:05.546356+00:00",
+    "python_version": "3.10.11",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD"
+  },
+  "parameters": {
+    "seed": 42,
+    "rows_count": 512,
+    "parameter_pools": [
+      200,
+      500,
+      1000,
+      3000
+    ],
+    "block_max_points": 256,
+    "sstable_format": "v2_timeseries"
+  },
+  "runs": [
+    {
+      "parameter_pool": 200,
+      "points_per_row_target": 200,
+      "rows": 512,
+      "points": 102080,
+      "scenarios": {
+        "ingest_only": {
+          "rows_per_sec": 2620.911288882384,
+          "points_per_sec": 522544.1882209253,
+          "bytes_written": 1277160,
+          "bytes_per_point": 12.511363636363637,
+          "flush_count": 1
+        },
+        "wide_query": {
+          "rows_per_sec": 10.46422027990785,
+          "points_per_sec": 400919.5956667144,
+          "latency_p50_ms": 96.00684999895748,
+          "latency_p95_ms": 145.72511500082328,
+          "files_considered": 16,
+          "files_pruned": 4,
+          "files_opened": 12,
+          "blocks_considered": 1536,
+          "blocks_pruned": 510,
+          "blocks_scanned": 1026,
+          "points_decoded": 409106,
+          "points_returned": 306507
+        },
+        "cold_recovery_startup": {
+          "rows_per_sec": 206960.66999368425,
+          "points_per_sec": 41262783.5799908,
+          "recovery_duration_ms": 1.6531,
+          "quarantined_files": 0,
+          "manifest_rebuild_count": 0
+        }
+      }
+    },
+    {
+      "parameter_pool": 500,
+      "points_per_row_target": 500,
+      "rows": 512,
+      "points": 255683,
+      "scenarios": {
+        "ingest_only": {
+          "rows_per_sec": 1029.110356213239,
+          "points_per_sec": 513918.0140774796,
+          "bytes_written": 3936807,
+          "bytes_per_point": 15.39721843063481,
+          "flush_count": 1
+        },
+        "wide_query": {
+          "rows_per_sec": 3.892227149442639,
+          "points_per_sec": 373550.6623270331,
+          "latency_p50_ms": 251.77114998950856,
+          "latency_p95_ms": 387.9778249960509,
+          "files_considered": 16,
+          "files_pruned": 4,
+          "files_opened": 12,
+          "blocks_considered": 3072,
+          "blocks_pruned": 1022,
+          "blocks_scanned": 2050,
+          "points_decoded": 1023740,
+          "points_returned": 767788
+        },
+        "cold_recovery_startup": {
+          "rows_per_sec": 139898.3550782385,
+          "points_per_sec": 69862560.78411964,
+          "recovery_duration_ms": 2.7324,
+          "quarantined_files": 0,
+          "manifest_rebuild_count": 0
+        }
+      }
+    },
+    {
+      "parameter_pool": 1000,
+      "points_per_row_target": 1000,
+      "rows": 512,
+      "points": 511685,
+      "scenarios": {
+        "ingest_only": {
+          "rows_per_sec": 497.236839345688,
+          "points_per_sec": 496930.92214960617,
+          "bytes_written": 7778504,
+          "bytes_per_point": 15.201743260013485,
+          "flush_count": 2
+        },
+        "wide_query": {
+          "rows_per_sec": 1.8711955524469746,
+          "points_per_sec": 359406.84504347993,
+          "latency_p50_ms": 538.6767499949201,
+          "latency_p95_ms": 837.713815002644,
+          "files_considered": 16,
+          "files_pruned": 4,
+          "files_opened": 12,
+          "blocks_considered": 3072,
+          "blocks_pruned": 1022,
+          "blocks_scanned": 2050,
+          "points_decoded": 2048750,
+          "points_returned": 1536587
+        },
+        "cold_recovery_startup": {
+          "rows_per_sec": 145182.32838306745,
+          "points_per_sec": 145093007.22400364,
+          "recovery_duration_ms": 2.6007,
+          "quarantined_files": 0,
+          "manifest_rebuild_count": 0
+        }
+      }
+    },
+    {
+      "parameter_pool": 3000,
+      "points_per_row_target": 3000,
+      "rows": 512,
+      "points": 1535688,
+      "scenarios": {
+        "ingest_only": {
+          "rows_per_sec": 145.42679455187925,
+          "points_per_sec": 436191.7642027077,
+          "bytes_written": 23139472,
+          "bytes_per_point": 15.067821067821068,
+          "flush_count": 4
+        },
+        "wide_query": {
+          "rows_per_sec": 0.6266327945516958,
+          "points_per_sec": 361218.2446479618,
+          "latency_p50_ms": 1583.9245000024675,
+          "latency_p95_ms": 2494.8060100039584,
+          "files_considered": 32,
+          "files_pruned": 14,
+          "files_opened": 18,
+          "blocks_considered": 2304,
+          "blocks_pruned": 254,
+          "blocks_scanned": 2050,
+          "points_decoded": 6148744,
+          "points_returned": 4611546
+        },
+        "cold_recovery_startup": {
+          "rows_per_sec": 137812.2308190701,
+          "points_per_sec": 413352713.1290549,
+          "recovery_duration_ms": 2.7909,
+          "quarantined_files": 0,
+          "manifest_rebuild_count": 0
+        }
+      }
+    }
+  ]
+}
